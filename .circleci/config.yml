@@ -1,4 +1,117 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+# import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Routing Navigation',
+    initialRoute: '/',
+    routes: {
+      '/' : (context) => HalamanPertama(),
+      HalamanKedua.routeName : (context) => HalamanKedua(),
+      HalamanKetiga.routeName : (context) => HalamanKetiga(),
+      HalamanKeempat.routeName : (context) => HalamanKeempat(),
+    },
+  ));
+}
+
+class HalamanPertama extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Menu 1 * Anggi S Manurung - 6SIA1* '),
+      ),
+      body: Center(
+        child: ListView(
+          children: <Widget>[
+            Text(''),
+            ElevatedButton(
+              child: Text('Menu 2'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKedua.routeName);
+              },
+            ),
+            Text(''),
+            ElevatedButton(
+              child: Text('Menu 3'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKetiga.routeName);
+              },
+            ),
+            Text(''),
+             ElevatedButton(
+              child: Text('Menu 4'),
+              onPressed: () {
+                Navigator.pushNamed(context, HalamanKeempat.routeName);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanKedua extends StatelessWidget {
+  static const String routeName = "/halamanKedua";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Menu 2"),
+      ),
+      body: Center(
+      
+        child: ElevatedButton(
+          child: Text('Kembali Ke Halaman Satu'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanKetiga extends StatelessWidget {
+  static const String routeName = "/halamanKetiga";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Menu 3"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Kembali Ke Halaman Satu'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanKeempat extends StatelessWidget {
+  static const String routeName = "/halamanKeempat";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Menu 4"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Kembali Ke Halaman Satu'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+}Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 # Use a package of configuration called an orb.
 orbs:
